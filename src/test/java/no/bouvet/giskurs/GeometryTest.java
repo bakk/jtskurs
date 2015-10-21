@@ -2,7 +2,7 @@ package no.bouvet.giskurs;
 
 import com.vividsolutions.jts.geom.LineString;
 import com.vividsolutions.jts.io.WKTReader;
-import com.vividsolutions.jts.util.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class GeometryTest {
@@ -12,9 +12,9 @@ public class GeometryTest {
     public void CreateLine() throws Exception {
         WKTReader reader = new WKTReader();
         LineString line = (LineString)reader.read("LINESTRING(0 0, 10 10)");
-        Assert.isTrue(line.isValid());
+        assertTrue(line.isValid());
         LineString line2 = (LineString)reader.read("LINESTRING(5 5, 0 10)");
-        Assert.isTrue(line.touches(line2));
+        assertTrue(line.touches(line2));
 
         //Display.createDisplay(line,line2, reader.read("POINT(5 5)"));
     }
